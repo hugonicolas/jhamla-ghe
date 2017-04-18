@@ -36,8 +36,8 @@ define('URL_INDEX_FILE', 'index.php' . '/');
 
 // the final URLs, constructed with the elements above
 if (defined('URL_SUB_FOLDER')) {
-    define('URL', URL_PROTOCOL . URL_DOMAIN . '/' . URL_SUB_FOLDER . '/');
-    define('URL_WITH_INDEX_FILE', URL_PROTOCOL . URL_DOMAIN . '/' . URL_SUB_FOLDER . '/' . URL_INDEX_FILE);
+    define('URL', URL_PROTOCOL . URL_DOMAIN . '/');
+    define('URL_WITH_INDEX_FILE', URL_PROTOCOL . URL_DOMAIN . '/' . URL_INDEX_FILE);
 } else {
     define('URL', URL_PROTOCOL . URL_DOMAIN . '/');
     define('URL_WITH_INDEX_FILE', URL_PROTOCOL . URL_DOMAIN . '/' . URL_INDEX_FILE);
