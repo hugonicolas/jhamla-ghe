@@ -29,7 +29,7 @@ ini_set("display_errors", 1);
  * then replace this line with full URL (and sub-folder) and a trailing slash.
  */
 
-define('URL_PROTOCOL', 'http://');
+define('URL_PROTOCOL', 'https://');
 define('URL_DOMAIN', $_SERVER['HTTP_HOST']);
 define('URL_SUB_FOLDER', 'tiny-master');
 define('URL_INDEX_FILE', 'index.php' . '/');
