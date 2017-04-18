@@ -47,8 +47,19 @@ if (defined('URL_SUB_FOLDER')) {
  * Configuration for: Database
  * This is the place where you define your database credentials, database type etc.
  */
+
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
+
+$conn = new mysqli($server, $username, $password, $db);
+
 define('DB_TYPE', 'mysql');
-define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'tiny');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_HOST', $server);
+define('DB_NAME', $db);
+define('DB_USER', $username);
+define('DB_PASS', $password);
+
