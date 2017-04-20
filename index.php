@@ -1,15 +1,5 @@
 <?php
 
-/**
- * A simple PHP MVC skeleton
- *
- * @package php-mvc
- * @author Panique
- * @link http://www.php-mvc.net
- * @link https://github.com/panique/php-mvc/
- * @license http://opensource.org/licenses/MIT MIT License
- */
-
 // set a constant that holds the project's folder path, like "/var/www/".
 // DIRECTORY_SEPARATOR adds a slash to the end of the path
 define('ROOT', __DIR__ . DIRECTORY_SEPARATOR);
