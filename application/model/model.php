@@ -1,4 +1,5 @@
 <?php
+
 class Model
 {
     /**
@@ -12,5 +13,5 @@ class Model
             exit('Database connection could not be established.');
         }
     }
- 
+
 }

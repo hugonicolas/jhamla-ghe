@@ -1,8 +1,5 @@
 <?php
 
-/**
- * This is the "base controller class". All other "real" controllers extend this class.
- */
 class Controller
 {
     /**
@@ -16,13 +13,11 @@ class Controller
     public $model = null;
 
     /**
-     * Whenever a controller is created, open a database connection too. The idea behind is to have ONE connection
-     * that can be used by multiple models (there are frameworks that open one connection per model).
+     * Whenever controller is created, open a database connection too and load "the model".
      */
     function __construct()
     {
         $this->openDatabaseConnection();
-        $this->loadModel();
     }
 
     /**
@@ -38,17 +33,17 @@ class Controller
 
         // generate a database connection, using the PDO connector
         // @see http://net.tutsplus.com/tutorials/php/why-you-should-be-using-phps-pdo-for-database-access/
-        $this->db = new PDO(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS, $options);
+        $this->db = new PDO(DB_TYPE . ':host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHARSET, DB_USER, DB_PASS, $options);
     }
 
     /**
      * Loads the "model".
      * @return object model
      */
-    public function loadModel()
+    public function loadModel($model_name)
     {
-        require APP . '/model/model.php';
+        require APP . 'model/' . strtolower($model_name) . '.php';
         // create new "model" (and pass the database connection)
-        $this->model = new Model($this->db);
+        $this->model = new $model_name($this->db);
     }
 }
